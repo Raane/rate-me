@@ -1,5 +1,7 @@
 package EloRating;
 public class EloRating {
+	public static int DEFAULT_ELO;
+	
 	
 	public static int newRating(int ratingPlayer, int ratingPlayerTwo, int scorePlayer) {
 		double diffRating = ratingPlayerTwo - ratingPlayer;

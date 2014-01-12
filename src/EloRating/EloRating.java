@@ -1,4 +1,4 @@
-
+package EloRating;
 public class EloRating {
 	
 	public static int newRating(int ratingPlayer, int ratingPlayerTwo, int scorePlayer) {

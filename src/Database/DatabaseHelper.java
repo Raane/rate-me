@@ -3,6 +3,7 @@ package Database;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.rate_me.MainActivity;
 import com.rate_me.Rateable;
 import com.rate_me.Category;
 
@@ -36,6 +37,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         	db.execSQL("DROP TABLE IF EXISTS " + listOfTableNames.get(i));
         }
         onCreate(db);
+    }
+    
+    
+    private ArrayList<String> getCategories() {
+    	ArrayList<String> listOfCategories = new ArrayList<String>();
+    	SQLiteDatabase db = this.getWritableDatabase();
+    	Cursor cursor = db.rawQuery("SELECT name FROM CategoryManager WHERE type='table'", null);
+    	if(cursor.moveToFirst()) {
+    		while(!cursor.isAfterLast()) {
+    			listOfCategories.add(cursor.getString(cursor.getColumnIndex("name")));
+    			cursor.moveToNext();
+    		}
+    	}
+    	return listOfCategories;
     }
     
     public void createTable(String nameCategory) {

@@ -12,7 +12,7 @@ public class Category {
 		this.id = id;
 		rateables = new ArrayList<Rateable>();
 	}
-	public void addRateable(String rateable){
+	public void addRateable(Rateable rateable){
 		//TODO adds rateable
 	}
 	public void removeRateable(){

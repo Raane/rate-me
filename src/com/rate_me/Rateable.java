@@ -11,7 +11,18 @@ public class Rateable {
 		this.name = name;
 		this.id = id;
 		elo = EloRating.DEFAULT_ELO;
-		
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public String getElo() {
+		return String.valueOf(elo);
+	}
+	
+	public int getId() {
+		return id;
 	}
 	
 }

@@ -9,22 +9,14 @@ import android.widget.TextView;
 
 public class RateFragment extends Fragment{
 
-	/**
-	 * The fragment argument representing the section number for this
-	 * fragment.
-	 */
-
 	public RateFragment() {
 	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.fragment_main_dummy,
+		View rootView = inflater.inflate(R.layout.rate,
 				container, false);
-		TextView dummyTextView = (TextView) rootView
-				.findViewById(R.id.section_label);
-		dummyTextView.setText("Rate");
 		return rootView;
 	}
 }

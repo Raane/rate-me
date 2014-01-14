@@ -18,4 +18,10 @@ public class Category {
 	public void removeRateable(){
 		//TODO removes a rateable
 	}
+	public int getId(){
+		return id;
+	}
+	public String getName(){
+		return name;
+	}
 }

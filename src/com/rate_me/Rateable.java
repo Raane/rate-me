@@ -7,18 +7,18 @@ public class Rateable {
 	private String name;
 	private int elo;
 	
-	public Rateable(int id, String name) {
+	public Rateable(int id, String name, int elo) {
 		this.name = name;
 		this.id = id;
-		elo = EloRating.DEFAULT_ELO;
+		this.elo = elo;
 	}
 	
 	public String getName() {
 		return name;
 	}
 	
-	public String getElo() {
-		return String.valueOf(elo);
+	public int getElo() {
+		return elo;
 	}
 	
 	public int getId() {

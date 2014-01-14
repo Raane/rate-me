@@ -39,7 +39,7 @@ public class MainActivity extends FragmentActivity {
 	ViewPager mViewPager;
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(Bundle savedInstanceState) { 	
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
@@ -61,6 +61,12 @@ public class MainActivity extends FragmentActivity {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
+	
+	@Override
+	protected void onDestroy() {
+		// TODO Auto-generated method stub
+		super.onDestroy();
+	}
 
 	/**
 	 * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
@@ -77,7 +83,18 @@ public class MainActivity extends FragmentActivity {
 			// getItem is called to instantiate the fragment for the given page.
 			// Return a DummySectionFragment (defined as a static inner class
 			// below) with the page number as its lone argument.
-			Fragment fragment = new DummySectionFragment();
+			Fragment fragment = new ViewRatingFragment();
+			switch (position) {
+			case 0:
+				fragment = new ViewRatingFragment();
+				break;
+			case 1:
+				fragment = new RateFragment();
+				break;
+			case 2:
+				fragment = new AddEditFragment();
+				break;
+			}
 			Bundle args = new Bundle();
 			args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, position + 1);
 			fragment.setArguments(args);
@@ -104,32 +121,27 @@ public class MainActivity extends FragmentActivity {
 			return null;
 		}
 	}
-
-	/**
-	 * A dummy fragment representing a section of the app, but that simply
-	 * displays dummy text.
-	 */
+	
 	public static class DummySectionFragment extends Fragment {
-		/**
-		 * The fragment argument representing the section number for this
-		 * fragment.
-		 */
-		public static final String ARG_SECTION_NUMBER = "section_number";
+        /**
+         * The fragment argument representing the section number for this
+         * fragment.
+         */
+        public static final String ARG_SECTION_NUMBER = "section_number";
 
-		public DummySectionFragment() {
-		}
+        public DummySectionFragment() {
+        }
 
-		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_main_dummy,
-					container, false);
-			TextView dummyTextView = (TextView) rootView
-					.findViewById(R.id.section_label);
-			dummyTextView.setText(Integer.toString(getArguments().getInt(
-					ARG_SECTION_NUMBER)));
-			return rootView;
-		}
-	}
-
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                        Bundle savedInstanceState) {
+                View rootView = inflater.inflate(R.layout.fragment_main_dummy,
+                                container, false);
+                TextView dummyTextView = (TextView) rootView
+                                .findViewById(R.id.section_label);
+                dummyTextView.setText(Integer.toString(getArguments().getInt(
+                                ARG_SECTION_NUMBER)));
+                return rootView;
+        }
+}
 }
